@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  </head>
+  <body>
+    <h1>This is Your Home Page</h1>
+    <p>Lets explore our website</p>
+    {{ write }}
+    <img src="{% static '/images/images.jpeg' %}" alt="it's your Home page">
+  </body>
+</html>

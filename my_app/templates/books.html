@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Books</title>
+    <link rel="stylesheet" href="{% static '/css/books.css' %}">
+  </head>
+  <body>
+    <h1>Here You'll find our books list</h1>
+    <p>Please find your favorite books from our site and enjoy yourself</p>
+
+    <div class="book_section">
+      {% if books_list %}
+        <table>
+          <thead>
+            <th>Book Name</th>
+            <th>ISBN No</th>
+            <th>Author</th>
+            <th>Genre</th>
+          </thead>
+          {% for each_book in books_list %}
+            <tr>
+              <td>{{ each_book.title }}</td>
+              <td>{{ each_book.isbn }}</td>
+              <td>{{ each_book.author }}</td>
+              {% for item in each_book.genre.all %}
+                <td>{{ item }}</td>
+                {% empty %}
+                <td>empty list!</td>
+              {% endfor %}
+
+            </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+          <p> No Books available here </p>
+        {% endif %}
+    </div>
+
+  </body>
+</html>
