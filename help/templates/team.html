@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>OUR TEAM</title>
+    <link rel="stylesheet" href="{% static '/css/books.css' %}">
+  </head>
+  <body>
+    <div class="team_section">
+      <h1>We are here to help you</h1>
+      <p>We have our special team to help you,</p>
+      <p>Please find them here</p>
+      {% if team_list %}
+        <table>
+          <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email id</th>
+            <th>Contact</th>
+          </thead>
+          {% for member in team_list %}
+            <tr>
+              <td>{{ member.first_name }}</td>
+              <td>{{ member.last_name }}</td>
+              <td>{{ member.email }}</td>
+              <td>{{ member.phone }}</td>
+            </tr>
+          {% empty %}
+            <h1>No Team Available</h1>
+          {% endfor %}
+        </table>
+        {% else %}
+          <p>Currently, we don't have an team </p>
+          <p>We will update once we get our team</p>
+          <p>Sorry for the incovenience!!!</p>
+        {% endif %}
+    </div>
+
+  </body>
+</html>
